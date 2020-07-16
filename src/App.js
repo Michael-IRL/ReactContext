@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import HelloHook from './components/HelloHook';
+import UserInfoContext from './contexts/UserInfoContext';
+import HelloClass from './components/HelloClass';
+import HelloHookMulti from './components/HelloHookMulti';
+import multiInfoContext from './contexts/MultiInfoContext';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+		<multiInfoContext.Provider value={'Multi'}>
+			<UserInfoContext.Provider value={'Alan'}>		
+				<HelloHook />
+				<HelloClass />
+				<HelloHookMulti />
+			</UserInfoContext.Provider >
+		</multiInfoContext.Provider>
+		</>
+	);
+
 }
 
 export default App;
